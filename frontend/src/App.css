@@ -1,0 +1,212 @@
+/* App.css */
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  /* Fixed background image */
+  background-image: url('https://images.unsplash.com/photo-1561553873-e8491a564fd0?q=80&w=2147&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Ensures image stays fixed on scroll */
+  position: relative;
+}
+
+/* Dark overlay to improve text visibility */
+.App::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 0;
+}
+
+/* Ensures content stays above overlay */
+.App-header,
+.weather-container,
+.forecast-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Transparent weather box */
+.App-header {
+  max-width: 800px;
+  width: 90%;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Adds a slight blur effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+/* Transparent forecast cards */
+/* Add to App.css */
+.forecast-scroll-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.forecast-grid {
+  display: flex;
+  gap: 20px;
+  padding: 30px 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE */
+}
+
+.forecast-grid::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.forecast-card {
+  scroll-snap-align: start;
+  min-width: 220px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.forecast-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 255, 255, 0.2);
+}
+
+.card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  z-index: -1;
+}
+
+.weather-icon {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 10px auto;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(0, 255, 255, 0.7);
+  border-radius: 50%;
+  animation: float 3s infinite ease-in-out;
+}
+
+.particle:nth-child(1) {
+  width: 8px;
+  height: 8px;
+  top: 15px;
+  left: 20px;
+  animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+  width: 5px;
+  height: 5px;
+  top: 30px;
+  left: 40px;
+  animation-delay: 0.5s;
+}
+
+.temp {
+  font-size: 1.8rem;
+  font-weight: 300;
+  background: linear-gradient(90deg, #00ffff, #0088ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 10px 0;
+}
+
+.desc {
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.stats p {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.humidity-icon::before {
+  content: "💧";
+  margin-right: 5px;
+}
+
+.wind-icon::before {
+  content: "🌬️";
+  margin-right: 5px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-10px) translateX(5px);
+  }
+}
+
+/* Input & button styling */
+input {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+button {
+  background: #61dafb;
+  color: #282c34;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #4fa8d3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .forecast-grid {
+    flex-direction: column;
+  }
+  .forecast-card {
+    min-width: 100%;
+  }
+}

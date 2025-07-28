@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/server.js",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["backend/.env", "backend/db.js", "backend/package.json"] }
+    },
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/build/$1"
+    }
+  ],
+  "env": {
+    "MONGODB_URI": "mongodb+srv://weatherAppUser:Piyush062007@cluster0.71xv3fv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    "WEATHER_API_KEY": "4227756c3695075f26abf0acd340eb97",
+    "REACT_APP_WEATHER_API_KEY": "4227756c3695075f26abf0acd340eb97"
+  }
+}
