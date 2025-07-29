@@ -12,7 +12,7 @@ function App() {
     setLoading(true);
     try {
       const response = await fetch(
-        `/api/weather/forecast?city=${encodeURIComponent(city)}`  /* here is the changes of last time */
+        `htttp://weathyy.onrender.com/api/weather/forecast?city=${encodeURIComponent(city)}`  /* here is the changes of last time */
       );
       const data = await response.json();
       setWeatherData(data);
