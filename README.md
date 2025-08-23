@@ -1,8 +1,4 @@
-## Preview
 
-<p align="center">
-  <img src="frontend/public/image.png" alt="Weathyy Screenshot" width="900" height ="900"/>
-</p>
 
 
 # Weathyy
