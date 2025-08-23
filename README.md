@@ -1,3 +1,5 @@
+![Weathyy Screenshot](path/to/screenshot.png)
+
 # Weathyy
 
 A sleek and user-friendly weather application that fetches real-time meteorological data for any location.
