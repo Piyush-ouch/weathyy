@@ -1,4 +1,9 @@
-![Weathyy Screenshot](frontend/pubic/image.png)
+## Preview
+
+<p align="center">
+  <img src="public/image.png" alt="Weathyy Screenshot" width="400"/>
+</p>
+
 
 # Weathyy
 
