@@ -1,4 +1,4 @@
-![Weathyy Screenshot](path/to/screenshot.png)
+![Weathyy Screenshot](frontend/pubic/image.png)
 
 # Weathyy
 
