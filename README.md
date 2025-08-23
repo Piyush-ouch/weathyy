@@ -23,10 +23,3 @@ A sleek and user-friendly weather application that fetches real-time meteorologi
 - **Deployment**: GitHub Pages / Vercel / Netlify (or your actual deployment platform)
 
 ---
-
-##  Installation & Setup
-
-1. **Clone the repository**  
-   ```bash
-   git clone https://github.com/Piyush-ouch/weathyy.git
-   cd weathyy
